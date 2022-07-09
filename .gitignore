@@ -1,0 +1,9 @@
+*
+
+!*/
+
+!.gitignore
+
+!**/*.placeholder
+
+!**/*.py
