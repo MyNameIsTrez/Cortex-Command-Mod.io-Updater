@@ -2,8 +2,10 @@
 
 !*/
 
-!.gitignore
-
 !**/*.placeholder
-
 !**/*.py
+
+!.gitignore
+!README.md
+!requirements.txt
+!.vscode/launch.json
