@@ -1,4 +1,8 @@
-import requests, time
+# import json
+import time
+from pathlib import Path
+
+import requests
 
 
 def download_mods():
@@ -16,11 +20,21 @@ def download_mods():
             headers=headers,
         ).json()
 
+        # with open("lol.json", "w", encoding="utf-8") as f:
+        #     json.dump(response, f, ensure_ascii=False, indent=4)
+
         for mod in response["data"]:
             if is_pre4_0(mod):
                 url = mod["modfile"]["download"]["binary_url"]
+
+                mod_id_directory_path = Path("downloads") / str(mod["id"])
+
+                mod_id_directory_path.mkdir(exist_ok=True)
+
                 mod_file = requests.get(url)
-                with open(f"downloads/{mod['name']}.zip", "wb") as f:
+                with open(
+                    mod_id_directory_path / mod["modfile"]["filename"], "wb"
+                ) as f:
                     f.write(mod_file.content)
 
         mod_offset += mods_per_request
