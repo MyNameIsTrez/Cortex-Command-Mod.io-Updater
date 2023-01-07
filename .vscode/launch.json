@@ -2,10 +2,34 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"name": "main",
+			"type": "python",
+			"request": "launch",
+			"program": "main.py",
+			"console": "integratedTerminal",
+			"justMyCode": false
+		},
+		{
+			"name": "mod_downloader",
+			"type": "python",
+			"request": "launch",
+			"program": "mod_downloader.py",
+			"console": "integratedTerminal",
+			"justMyCode": false
+		},
+		{
 			"name": "mod_converter",
 			"type": "python",
 			"request": "launch",
 			"program": "mod_converter.py",
+			"console": "integratedTerminal",
+			"justMyCode": false
+		},
+		{
+			"name": "mod_sorter",
+			"type": "python",
+			"request": "launch",
+			"program": "mod_sorter.py",
 			"console": "integratedTerminal",
 			"justMyCode": false
 		},
