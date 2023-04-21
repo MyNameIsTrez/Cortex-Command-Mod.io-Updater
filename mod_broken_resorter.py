@@ -10,7 +10,7 @@ def sort_mods():
 
     for mod_id_folder_path in (
         entry_path
-        for entry_path in Path("2_converted").iterdir()
+        for entry_path in Path("3_boot_crashing").iterdir()
         if entry_path.is_dir()
     ):
         for mod_path in (
@@ -27,30 +27,29 @@ def sort_mods():
             # print(mod_in_mods_directory_path)
 
             completed_process_instance = subprocess.run(
-                [
-                    game_directory_path / "Cortex Command.debug.release.exe",
-                    "-ext-validate",
-                ],
+                [game_directory_path / "Cortex Command.debug.release.exe"],
                 cwd=game_directory_path,
             )
             print(completed_process_instance)
 
             if completed_process_instance.returncode == 0:
                 destination_directory_name = Path("3_not_boot_crashing")
+
+                destination_directory_path = (
+                    destination_directory_name / mod_path.parent.name
+                )
+                # print(destination_directory_path)
+                destination_directory_path.mkdir(exist_ok=True)
+                shutil.move(mod_in_mods_directory_path, destination_directory_path)
+
+                shutil.rmtree(mod_path)
+
+                if len(os.listdir(mod_id_folder_path)) == 0:
+                    mod_id_folder_path.rmdir()
             else:
-                destination_directory_name = Path("3_boot_crashing")
-
-            destination_directory_path = (
-                destination_directory_name / mod_path.parent.name
-            )
-            # print(destination_directory_path)
-            destination_directory_path.mkdir(exist_ok=True)
-            shutil.move(mod_in_mods_directory_path, destination_directory_path)
-
-            shutil.rmtree(mod_path)
-
-            if len(os.listdir(mod_id_folder_path)) == 0:
-                mod_id_folder_path.rmdir()
+                # TODO: Unify this line with whatever happens in the true case above.
+                shutil.rmtree(mod_in_mods_directory_path)
+                return
 
 
 if __name__ == "__main__":

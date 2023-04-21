@@ -27,7 +27,7 @@ def download_mods():
             if is_pre4_0(mod):
                 url = mod["modfile"]["download"]["binary_url"]
 
-                mod_id_directory_path = Path("downloads") / str(mod["id"])
+                mod_id_directory_path = Path("1_downloads") / str(mod["id"])
 
                 mod_id_directory_path.mkdir(exist_ok=True)
 
