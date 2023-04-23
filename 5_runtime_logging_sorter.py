@@ -75,23 +75,16 @@ def sort_mods():
                         game_directory_path / "Cortex Command.debug.release.exe",
                     ],
                     cwd=game_directory_path,
-                    # start_new_session=True,
                 )
                 p.wait(timeout=10)
             except subprocess.TimeoutExpired:
                 for hwnd in get_hwnds_for_pid(p.pid):
-                    print(hwnd, "=>", win32gui.GetWindowText(hwnd))
                     win32gui.SendMessage(hwnd, win32con.WM_CLOSE, 0, 0)
-                # os.kill(p.pid, signal.SIGHUP)
                 # os.kill(p.pid, signal.SIGTERM)
-                # os.kill(p.pid, signal.SIGABRT)
-                # os.kill(p.pid, signal.SIGINT)
                 # p.send_signal(signal.SIGTERM)
-                # p.send_signal(signal.CTRL_C_EVENT)
-                # p.send_signal(signal.CTRL_BREAK_EVENT)
 
-            # Some sleeping is required for LogConsole.txt to be written back to disk
-            # before the .read_text() below is reached.
+            # On Windows at least, some sleeping is required for LogConsole.txt
+            # to be written back to disk before the .read_text() below is reached.
             time.sleep(1)
             log = console_log_path.read_text()
 

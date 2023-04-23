@@ -7,8 +7,8 @@ from pathlib import Path
 def sort_mods():
     game_directory_path = Path("I:/Programming/Cortex-Command-Community-Project-Data")
     mod_directory_path = game_directory_path / "Mods"
-    console_log_path = game_directory_path / "LogConsole.txt"
 
+    console_log_path = game_directory_path / "LogConsole.txt"
     nothing_special_logged = (
         "- RTE Lua Console -\n"
         "See the Data Realms Wiki for commands: http://www.datarealms.com/wiki/\n"
