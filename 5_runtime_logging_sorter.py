@@ -36,8 +36,8 @@ def sort_mods():
         "-------------------------------------\n"
         "SYSTEM: Activity was reset!\n"
         "ERROR: Finding Scene preset '' failed! Has it been properly defined?\n"
-        'SYSTEM: Scene "Fight" was loaded\n'
-        'SYSTEM: Activity "Fight" was successfully started'
+        'SYSTEM: Scene "Benchmark" was loaded\n'
+        'SYSTEM: Activity "Combat Benchmark" was successfully started'
     )
 
     for mod_id_folder_path in (
@@ -56,6 +56,12 @@ def sort_mods():
 
             shutil.copytree(mod_path, mod_in_mods_directory_path)
 
+            # Not sure whether the sleep is necessary, but just in case.
+            time.sleep(1)
+            # Clear LogConsole.txt, since if the game hard crashes the log isn't flushed,
+            # and so the next mods can end up with logs of previous mods.
+            console_log_path.open("w").close()
+
             # TODO: This may work on Unix, but on Windows,
             # timeout doesn't allow LogConsole.txt to be flushed.
             # try:
@@ -72,11 +78,11 @@ def sort_mods():
             try:
                 p = subprocess.Popen(
                     [
-                        game_directory_path / "Cortex Command.debug.release.exe",
+                        game_directory_path / "Cortex Command.exe",
                     ],
                     cwd=game_directory_path,
                 )
-                p.wait(timeout=10)
+                p.wait(timeout=60)
             except subprocess.TimeoutExpired:
                 for hwnd in get_hwnds_for_pid(p.pid):
                     win32gui.SendMessage(hwnd, win32con.WM_CLOSE, 0, 0)
