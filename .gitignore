@@ -9,3 +9,5 @@
 !README.md
 !requirements.txt
 !.vscode/launch.json
+
+backups/**/*
