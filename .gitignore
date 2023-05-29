@@ -1,13 +1,8 @@
 *
 
-!*/
-
-!**/*.placeholder
-!**/*.py
-
+!*/.placeholder
+!*.py
 !.gitignore
 !README.md
 !requirements.txt
 !.vscode/launch.json
-
-backups/**/*
