@@ -62,19 +62,6 @@ def sort_mods():
             # and so the next mods can end up with logs of previous mods.
             console_log_path.open("w").close()
 
-            # TODO: This may work on Unix, but on Windows,
-            # timeout doesn't allow LogConsole.txt to be flushed.
-            # try:
-            #     completed_process_instance = subprocess.run(
-            #         [
-            #             game_directory_path / "Cortex Command.debug.release.exe",
-            #         ],
-            #         cwd=game_directory_path,
-            #         timeout=10,
-            #     )
-            # except subprocess.TimeoutExpired:
-            #     pass
-
             try:
                 p = subprocess.Popen(
                     [
@@ -86,8 +73,6 @@ def sort_mods():
             except subprocess.TimeoutExpired:
                 for hwnd in get_hwnds_for_pid(p.pid):
                     win32gui.SendMessage(hwnd, win32con.WM_CLOSE, 0, 0)
-                # os.kill(p.pid, signal.SIGTERM)
-                # p.send_signal(signal.SIGTERM)
 
             # On Windows at least, some sleeping is required for LogConsole.txt
             # to be written back to disk before the .read_text() below is reached.

@@ -1,6 +1,5 @@
 import os
 import shutil
-import signal
 import subprocess
 import time
 from pathlib import Path
@@ -62,19 +61,6 @@ def sort_mods():
             # and so the next mods can end up with logs of previous mods.
             console_log_path.open("w").close()
 
-            # TODO: This may work on Unix, but on Windows,
-            # timeout doesn't allow LogConsole.txt to be flushed.
-            # try:
-            #     completed_process_instance = subprocess.run(
-            #         [
-            #             game_directory_path / "Cortex Command.debug.release.exe",
-            #         ],
-            #         cwd=game_directory_path,
-            #         timeout=10,
-            #     )
-            # except subprocess.TimeoutExpired:
-            #     pass
-
             try:
                 p = subprocess.Popen(
                     [
@@ -86,8 +72,6 @@ def sort_mods():
             except subprocess.TimeoutExpired:
                 for hwnd in get_hwnds_for_pid(p.pid):
                     win32gui.SendMessage(hwnd, win32con.WM_CLOSE, 0, 0)
-                # os.kill(p.pid, signal.SIGTERM)
-                # p.send_signal(signal.SIGTERM)
 
             # On Windows at least, some sleeping is required for LogConsole.txt
             # to be written back to disk before the .read_text() below is reached.
@@ -96,22 +80,25 @@ def sort_mods():
 
             if log == nothing_special_logged:
                 destination_directory_name = Path("5_not_runtime_logging")
+            else:
+                destination_directory_name = Path("5_runtime_logging")
 
-                destination_directory_path = (
-                    destination_directory_name / mod_path.parent.name
-                )
+            destination_directory_path = (
+                destination_directory_name / mod_path.parent.name
+            )
 
+            if log == nothing_special_logged:
                 destination_directory_path.mkdir(exist_ok=True)
                 shutil.move(mod_in_mods_directory_path, destination_directory_path)
 
-                if log != nothing_special_logged:
-                    shutil.copy(console_log_path, destination_directory_path)
-
                 shutil.rmtree(mod_path)
 
-                if len(os.listdir(mod_id_folder_path)) == 0:
+                if len(os.listdir(mod_id_folder_path)) == 1:
+                    os.remove(mod_id_folder_path / "LogConsole.txt")
                     mod_id_folder_path.rmdir()
             else:
+                shutil.copy(console_log_path, destination_directory_path)
+
                 # TODO: Unify this line with whatever happens in the true case above.
                 shutil.rmtree(mod_in_mods_directory_path)
                 return

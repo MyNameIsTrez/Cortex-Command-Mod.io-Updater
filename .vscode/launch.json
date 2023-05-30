@@ -33,5 +33,13 @@
 			"console": "integratedTerminal",
 			"justMyCode": false
 		},
+		{
+			"name": "5_runtime_logging_resorter",
+			"type": "python",
+			"request": "launch",
+			"program": "5_runtime_logging_resorter.py",
+			"console": "integratedTerminal",
+			"justMyCode": false
+		},
 	]
 }
