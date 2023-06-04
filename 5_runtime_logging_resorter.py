@@ -95,6 +95,8 @@ def sort_mods():
 
                 if len(os.listdir(mod_id_folder_path)) == 1:
                     os.remove(mod_id_folder_path / "LogConsole.txt")
+
+                if len(os.listdir(mod_id_folder_path)) == 0:
                     mod_id_folder_path.rmdir()
             else:
                 shutil.copy(console_log_path, destination_directory_path)
