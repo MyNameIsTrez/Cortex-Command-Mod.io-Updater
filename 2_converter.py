@@ -1,5 +1,4 @@
 import os
-import shutil
 from pathlib import Path
 
 from cortex_command_mod_converter_engine import convert
