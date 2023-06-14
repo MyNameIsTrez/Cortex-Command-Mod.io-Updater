@@ -1,16 +1,14 @@
-import os
 import shutil
-import subprocess
 from pathlib import Path
 
 
-def sort_mods():
+def copy_working():
     game_directory_path = Path("I:/Programming/Cortex-Command-Community-Project-Data")
     mod_directory_path = game_directory_path / "Mods"
 
     for mod_id_folder_path in (
         entry_path
-        for entry_path in Path("3_not_boot_crashing").iterdir()
+        for entry_path in Path("5_not_runtime_logging").iterdir()
         if entry_path.is_dir()
     ):
         for mod_path in (
@@ -27,4 +25,4 @@ def sort_mods():
 
 
 if __name__ == "__main__":
-    sort_mods()
+    copy_working()
