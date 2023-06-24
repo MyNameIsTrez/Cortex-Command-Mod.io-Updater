@@ -6,6 +6,7 @@ from pathlib import Path
 
 def sort_mods():
     game_directory_path = Path("I:/Programming/Cortex-Command-Community-Project-Data")
+    # game_directory_path = Path("I:/Games/CCCP Pre5.0")
     mod_directory_path = game_directory_path / "Mods"
 
     for mod_id_folder_path in (
@@ -27,7 +28,7 @@ def sort_mods():
             # print(mod_in_mods_directory_path)
 
             completed_process_instance = subprocess.run(
-                [game_directory_path / "Cortex Command.debug.release.exe"],
+                [game_directory_path / "Cortex Command.exe"],
                 cwd=game_directory_path,
             )
             print(completed_process_instance)
