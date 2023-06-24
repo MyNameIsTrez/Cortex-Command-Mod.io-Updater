@@ -2,34 +2,18 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "main",
+			"name": "1_downloader",
 			"type": "python",
 			"request": "launch",
-			"program": "main.py",
+			"program": "1_downloader.py",
 			"console": "integratedTerminal",
 			"justMyCode": false
 		},
 		{
-			"name": "mod_downloader",
+			"name": "2_converter",
 			"type": "python",
 			"request": "launch",
-			"program": "mod_downloader.py",
-			"console": "integratedTerminal",
-			"justMyCode": false
-		},
-		{
-			"name": "mod_converter",
-			"type": "python",
-			"request": "launch",
-			"program": "mod_converter.py",
-			"console": "integratedTerminal",
-			"justMyCode": false
-		},
-		{
-			"name": "mod_sorter",
-			"type": "python",
-			"request": "launch",
-			"program": "mod_sorter.py",
+			"program": "2_converter.py",
 			"console": "integratedTerminal",
 			"justMyCode": false
 		},
@@ -38,6 +22,14 @@
 			"type": "python",
 			"request": "launch",
 			"program": "5_runtime_logging_resorter.py",
+			"console": "integratedTerminal",
+			"justMyCode": false
+		},
+		{
+			"name": "7_upload",
+			"type": "python",
+			"request": "launch",
+			"program": "7_upload.py",
 			"console": "integratedTerminal",
 			"justMyCode": false
 		},
