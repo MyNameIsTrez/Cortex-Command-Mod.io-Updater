@@ -1,7 +1,6 @@
 import json
 import shutil
 import tempfile
-import time
 from pathlib import Path
 
 import modio
@@ -83,8 +82,6 @@ def upload():
             finally:
                 print("Removing the temporary directory...")
                 shutil.rmtree(tmp_dir)
-
-            time.sleep(10)
         else:
             print("Skipping this mod, since it doesn't have the 'Pre-Release 4.0' tag")
             shutil.move(
