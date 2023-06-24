@@ -4,6 +4,7 @@ import subprocess
 import time
 from pathlib import Path
 
+import playsound
 import win32con
 import win32gui
 import win32process
@@ -104,6 +105,9 @@ def sort_mods():
 
                 # TODO: Unify this line with whatever happens in the true case above.
                 shutil.rmtree(mod_in_mods_directory_path)
+
+                playsound.playsound("horn.wav")
+
                 return
 
 
