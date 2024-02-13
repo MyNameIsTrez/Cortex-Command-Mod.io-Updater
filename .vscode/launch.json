@@ -2,8 +2,16 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"name": "0_get_modio_data",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "0_get_modio_data.py",
+			"console": "integratedTerminal",
+			"justMyCode": false
+		},
+		{
 			"name": "1_downloader",
-			"type": "python",
+			"type": "debugpy",
 			"request": "launch",
 			"program": "1_downloader.py",
 			"console": "integratedTerminal",
@@ -11,23 +19,71 @@
 		},
 		{
 			"name": "2_converter",
-			"type": "python",
+			"type": "debugpy",
 			"request": "launch",
 			"program": "2_converter.py",
 			"console": "integratedTerminal",
 			"justMyCode": false
 		},
 		{
+			"name": "3_boot_crashing_resorter",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "3_boot_crashing_resorter.py",
+			"console": "integratedTerminal",
+			"justMyCode": false
+		},
+		{
+			"name": "3_boot_crashing_sorter",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "3_boot_crashing_sorter.py",
+			"console": "integratedTerminal",
+			"justMyCode": false
+		},
+		{
+			"name": "4_boot_logging_resorter",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "4_boot_logging_resorter.py",
+			"console": "integratedTerminal",
+			"justMyCode": false
+		},
+		{
+			"name": "4_boot_logging_sorter",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "4_boot_logging_sorter.py",
+			"console": "integratedTerminal",
+			"justMyCode": false
+		},
+		{
 			"name": "5_runtime_logging_resorter",
-			"type": "python",
+			"type": "debugpy",
 			"request": "launch",
 			"program": "5_runtime_logging_resorter.py",
 			"console": "integratedTerminal",
 			"justMyCode": false
 		},
 		{
+			"name": "5_runtime_logging_sorter",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "5_runtime_logging_sorter.py",
+			"console": "integratedTerminal",
+			"justMyCode": false
+		},
+		{
+			"name": "6_copy_working",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "6_copy_working.py",
+			"console": "integratedTerminal",
+			"justMyCode": false
+		},
+		{
 			"name": "7_upload",
-			"type": "python",
+			"type": "debugpy",
 			"request": "launch",
 			"program": "7_upload.py",
 			"console": "integratedTerminal",
