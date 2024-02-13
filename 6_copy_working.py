@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 def copy_working():
-    game_directory_path = Path("I:/Programming/Cortex-Command-Community-Project-Data")
+    game_directory_path = Path("I:/Programming/Cortex-Command-Community-Project")
     mod_directory_path = game_directory_path / "Mods"
 
     for mod_id_folder_path in (
