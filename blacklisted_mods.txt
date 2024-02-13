@@ -22,9 +22,10 @@
 176529 // https://mod.io/g/cccp/m/orks
 176533 // https://mod.io/g/cccp/m/combine-overwatch
 
-// Mods that expect the user to manually overwrite vanilla files
-1380693 // https://mod.io/g/cccp/m/coaltion-reskin
+// Mods with the tag "Overwrites files"
+708189 // https://mod.io/g/cccp/m/heart-icons
+1380693 // https://mod.io/g/cccp/m/coalition-reskin
 1616179 // https://cccp.mod.io/islamic-whitebot
 1939411 // https://mod.io/g/cccp/m/custom-loading-background
 1971501 // https://mod.io/g/cccp/m/vanilla-jetpacks-booster
-708189 // https://mod.io/g/cccp/m/heart-icons
+2666649 // https://mod.io/g/cccp/m/custom-team-icon-pack
