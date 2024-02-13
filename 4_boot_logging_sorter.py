@@ -6,7 +6,6 @@ from pathlib import Path
 
 def sort_mods():
     game_directory_path = Path("I:/Programming/Cortex-Command-Community-Project-Data")
-    # game_directory_path = Path("I:/Games/CCCP Pre5.0")
     mod_directory_path = game_directory_path / "Mods"
 
     console_log_path = game_directory_path / "LogConsole.txt"
