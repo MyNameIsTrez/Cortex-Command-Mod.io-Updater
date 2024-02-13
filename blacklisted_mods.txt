@@ -29,3 +29,5 @@
 1939411 // https://mod.io/g/cccp/m/custom-loading-background
 1971501 // https://mod.io/g/cccp/m/vanilla-jetpacks-booster
 2666649 // https://mod.io/g/cccp/m/custom-team-icon-pack
+2773066 // https://mod.io/g/cccp/m/bansheeendlessmode
+2865012 // https://mod.io/g/cccp/m/ronin-expansion-by-altair
