@@ -21,7 +21,6 @@ def convert_mods():
         index += 1
 
         mod_output_folder_path = output_folder_path / mod_id_folder_path.name
-        print(mod_output_folder_path)
 
         mod_output_folder_path.mkdir(exist_ok=True)
 
@@ -30,6 +29,8 @@ def convert_mods():
             for entry_path in mod_id_folder_path.glob("*")
             if entry_path.suffix == ".rte"
         ):
+            print(mod_path)
+
             completed_process_instance = subprocess.run(
                 [
                     converter_path,
