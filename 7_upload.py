@@ -30,11 +30,16 @@ def upload():
     client = modio.Client(api_key=api_key, access_token=oauth2)
     game = client.get_game(game_id)
 
+    entry_paths = list(Path("5_not_runtime_logging").iterdir())
+
+    index = 0
     for mod_id_folder_path in (
-        entry_path
-        for entry_path in Path("5_not_runtime_logging").iterdir()
-        if entry_path.is_dir()
+        entry_path for entry_path in entry_paths if entry_path.is_dir()
     ):
+        # -1 because of .placeholder file
+        print(f"{index + 1}/{len(entry_paths) - 1}")
+        index += 1
+
         print(mod_id_folder_path)
 
         mod_id = int(mod_id_folder_path.name)
@@ -76,7 +81,7 @@ def upload():
                 print("Sorting the zip...")
                 shutil.move(
                     mod_id_folder_path,
-                    Path("7_uploaded") / mod_id_folder_path.name,
+                    Path("6_uploaded") / mod_id_folder_path.name,
                 )
 
             finally:
@@ -86,7 +91,7 @@ def upload():
             print("Skipping this mod, since it doesn't have the 'Pre-Release 4.0' tag")
             shutil.move(
                 mod_id_folder_path,
-                Path("7_skipped") / mod_id_folder_path.name,
+                Path("6_skipped") / mod_id_folder_path.name,
             )
 
 

@@ -40,16 +40,21 @@ def sort_mods():
         'SYSTEM: Activity "Combat Benchmark" was successfully started'
     )
 
+    entry_paths = list(Path("5_runtime_logging").iterdir())
+
+    index = 0
     for mod_id_folder_path in (
-        entry_path
-        for entry_path in Path("5_runtime_logging").iterdir()
-        if entry_path.is_dir()
+        entry_path for entry_path in entry_paths if entry_path.is_dir()
     ):
         for mod_path in (
             entry_path
             for entry_path in mod_id_folder_path.glob("*")
             if entry_path.suffix == ".rte"
         ):
+            # -1 because of .placeholder file
+            print(f"{index + 1}/{len(entry_paths) - 1}")
+            index += 1
+
             print(mod_path)
 
             mod_in_mods_directory_path = mod_directory_path / mod_path.name
