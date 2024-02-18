@@ -2,7 +2,7 @@ import shutil
 from pathlib import Path
 
 
-def copy_working():
+def play_all_mods():
     game_directory_path = Path("I:/Programming/Cortex-Command-Community-Project")
     mod_directory_path = game_directory_path / "Mods"
 
@@ -30,4 +30,4 @@ def copy_working():
 
 
 if __name__ == "__main__":
-    copy_working()
+    play_all_mods()

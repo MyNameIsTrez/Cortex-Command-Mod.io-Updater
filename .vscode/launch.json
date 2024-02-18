@@ -74,10 +74,10 @@
 			"justMyCode": false
 		},
 		{
-			"name": "6_copy_working",
+			"name": "6_play_all_mods",
 			"type": "debugpy",
 			"request": "launch",
-			"program": "6_copy_working.py",
+			"program": "6_play_all_mods.py",
 			"console": "integratedTerminal",
 			"justMyCode": false
 		},
