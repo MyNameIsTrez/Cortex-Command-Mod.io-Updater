@@ -1,9 +1,13 @@
 import json
+import logging
 import shutil
 import tempfile
 from pathlib import Path
 
 import modio
+
+# TODO: What is the point of this? Is it to do with the modio package?
+logging.basicConfig(level=logging.DEBUG)
 
 
 def get_mods_tags(mods):
@@ -49,13 +53,13 @@ def upload():
         print("Getting the mod...")
         mod = game.get_mod(mod_id)
 
-        if "Pre-Release 4.0" in tags:
+        if "Pre-Release 5.0" in tags:
             print("Deleting old tag...")
-            mod.delete_tags("Pre-Release 4.0")
+            mod.delete_tags("Pre-Release 5.0")
 
-            if "Pre-Release 5.0" not in tags:
+            if "Release 6.0" not in tags:
                 print("Adding new tag...")
-                mod.add_tags("Pre-Release 5.0")
+                mod.add_tags("Release 6.0")
 
             print("Creating a temporary directory...")
             tmp_dir = Path(tempfile.mkdtemp())
@@ -70,7 +74,7 @@ def upload():
 
                 print("Creating the mod.io Python zip file...")
                 new_mod_file = modio.NewModFile(
-                    version="pre5.0-v1.0", changelog="Converted to pre5.0"
+                    version="release6.1-v1.0", changelog="Converted to release 6.1"
                 )
                 mod_zip_path = tmp_dir / f"{mod.name_id}.rte.zip"
                 new_mod_file.add_file(mod_zip_path)
@@ -88,7 +92,7 @@ def upload():
                 print("Removing the temporary directory...")
                 shutil.rmtree(tmp_dir)
         else:
-            print("Skipping this mod, since it doesn't have the 'Pre-Release 4.0' tag")
+            print("Skipping this mod, since it doesn't have the old tag")
             shutil.move(
                 mod_id_folder_path,
                 Path("6_skipped") / mod_id_folder_path.name,
