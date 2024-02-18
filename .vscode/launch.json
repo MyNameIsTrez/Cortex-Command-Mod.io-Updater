@@ -74,18 +74,18 @@
 			"justMyCode": false
 		},
 		{
-			"name": "6_play_all_mods",
+			"name": "6_upload",
 			"type": "debugpy",
 			"request": "launch",
-			"program": "6_play_all_mods.py",
+			"program": "6_upload.py",
 			"console": "integratedTerminal",
 			"justMyCode": false
 		},
 		{
-			"name": "7_upload",
+			"name": "7_play_all_mods",
 			"type": "debugpy",
 			"request": "launch",
-			"program": "7_upload.py",
+			"program": "7_play_all_mods.py",
 			"console": "integratedTerminal",
 			"justMyCode": false
 		},
