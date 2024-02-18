@@ -7,7 +7,7 @@ def main():
         print(client)
 
     with open("email.txt") as f:
-        print(f.read().rstrip("\n"))
+        # print(f.read().rstrip("\n"))
         client.email_request(f.read().rstrip("\n"))
 
     # Check your email for the security code
