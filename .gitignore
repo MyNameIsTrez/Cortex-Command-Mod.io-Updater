@@ -3,7 +3,7 @@
 !*/.placeholder
 !.gitignore
 !*.py
-!blacklisted_mods.txt
+!blacklisted_mods.md
 !horn.wav
 !README.md
 !requirements.txt
