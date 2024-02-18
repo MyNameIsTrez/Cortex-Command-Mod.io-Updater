@@ -80,7 +80,7 @@ def sort_mods():
 
             # On Windows at least, some sleeping is required for LogConsole.txt
             # to be written back to disk before the .read_text() below is reached.
-            time.sleep(1)
+            time.sleep(3)
             log = console_log_path.read_text()
 
             if log == nothing_special_logged:
