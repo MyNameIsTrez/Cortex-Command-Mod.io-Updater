@@ -40,14 +40,17 @@ def sort_mods():
             completed_process_instance = subprocess.run(
                 [
                     game_directory_path / "Cortex Command.exe",
-                    "-ext-validate",
+                    # "-ext-validate",
                 ],
                 cwd=game_directory_path,
             )
 
             log = console_log_path.read_text()
 
-            if log == nothing_special_logged:
+            if (
+                log == nothing_special_logged
+                and completed_process_instance.returncode == 0
+            ):
                 destination_directory_name = Path("4_not_boot_logging")
 
                 destination_directory_path = (

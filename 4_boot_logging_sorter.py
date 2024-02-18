@@ -47,7 +47,10 @@ def sort_mods():
 
             log = console_log_path.read_text()
 
-            if log == nothing_special_logged:
+            if (
+                log == nothing_special_logged
+                and completed_process_instance.returncode == 0
+            ):
                 destination_directory_name = Path("4_not_boot_logging")
             else:
                 destination_directory_name = Path("4_boot_logging")
