@@ -74,7 +74,7 @@ def upload():
 
                 print("Creating the mod.io Python zip file...")
                 new_mod_file = modio.NewModFile(
-                    version="release6.1-v1.0", changelog="Converted to release 6.1"
+                    version="release6-v1.0", changelog="Converted to release 6"
                 )
                 mod_zip_path = tmp_dir / f"{mod.name_id}.rte.zip"
                 new_mod_file.add_file(mod_zip_path)
